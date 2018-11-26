@@ -1,0 +1,94 @@
+<!-- Displays quiz grades without revealing students names -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #808080;
+            color: #FFFFFF;
+        }
+        table {
+            width: 55%;
+            border-spacing: 0px;
+            border-collapse: collapse;
+        }
+        table, td, th {
+            border: 1px solid black;
+            padding: 3px;
+        }
+        th {
+            background-color: #142857;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif;
+            text-align: left;
+        }
+        td {
+            background-color: #009fff;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif
+        }
+        a:link {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        a:active {
+            color: #0000FF;
+            text-decoration: none;
+        }
+    </style>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<div class="thumbnail"><img src="http://localhost:5000/static/anonymousviewer.gif"  height="120" width="400"></div>
+
+<font size="2">
+    Anonymous Mode |
+    Quizzes:
+    {% for id in valid_quizzes %}
+        <a href="/quiz/{{id}}/results">{{id}}</a>
+    {% endfor %} |
+    <a href="/login">Login</a> <br>
+</font>
+
+<p>
+
+</p>
+
+<p>
+    {% if has_results %}
+        <b>Subject:</b> {{ list_of_quizzes[0][2] }} ({{ list_of_quizzes[0][4] }} questions)<br>
+        <b>Date of Quiz:</b> {{ list_of_quizzes[0][1] }}<br>
+    {% endif %}
+</p>
+
+<table>
+    <tr>
+        <th width="50%"><center>Student</center></th>
+        <th width="50%"><center>Grade</center></th>
+    </tr>
+    {% if has_results %}
+        {% for quiz in list_of_quizzes %}
+            <tr>
+                <td><center>{{ quiz[0] }}</center></td>
+                <td><center>{{ quiz[3] }}</center></td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr><td colspan="5"><center><i>No results</i></center></td></tr>
+    {% endif %}
+</table>
+
+
+</body>
+</html>

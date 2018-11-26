@@ -1,0 +1,66 @@
+<!-- Takes in information on student addition -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #808080;
+            color: #FFFFFF;
+        }
+        table {
+            width: 55%;
+            border-spacing: 0px;
+            border-collapse: collapse;
+        }
+        table, td, th {
+            border: 1px solid black;
+            padding: 3px;
+        }
+        th {
+            background-color: #142857;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif;
+            text-align: left;
+        }
+        td {
+            background-color: #009fff;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif
+        }
+        a:link {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        a:active {
+            color: #0000FF;
+            text-decoration: none;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+</head>
+
+<body>
+
+<div class="thumbnail"><img src="http://localhost:5000/static/addstudent.gif"  height="120" width="360"></div>
+
+    <form action="/student/add" method="post">
+        <p>First Name: <input type="text" name="fname"></p>
+        <p>Last Name: <input type="text" name="lname"></p>
+        <p><input type="Submit" value="Submit"></p>
+        <p><a href="/dashboard">Return to Main Dashboard</a></p>
+    </form>
+
+<p><font color="red">{{ status_message }}</font></p>
+</body>
+</html>

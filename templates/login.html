@@ -1,0 +1,64 @@
+<!-- Login page allowing for the taking in of information of username and password -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #808080;
+            color: #FFFFFF;
+        }
+        table {
+            width: 55%;
+            border-spacing: 0px;
+            border-collapse: collapse;
+        }
+        table, td, th {
+            border: 1px solid black;
+            padding: 3px;
+        }
+        th {
+            background-color: #142857;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif;
+            text-align: left;
+        }
+        td {
+            background-color: #009fff;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif;}
+        a:link {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        a:active {
+            color: #0000FF;
+            text-decoration: none;
+        }
+    </style>
+    <title>Student Grade Portal</title>
+</head>
+<body>
+
+    <div class="thumbnail"><img src="http://localhost:5000/static/studentgraderesult.gif"  height="120" width="360"></div>
+    <form action="/login" method="post">
+		<p>Please Login with your Username and Password.</b><br>
+        <p>Username: <input type="text" name="username"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value="Login"></p>
+    </form>
+
+    <p><font color='red'>{{ status_message }}</font></p>
+
+ <p><a href="/quiz/1/results">Anonymous View</a></p>
+</body>
+</html>
